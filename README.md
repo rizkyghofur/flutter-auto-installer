@@ -74,17 +74,47 @@ Bagi pengguna yang ingin langsung menjalankan instalasi tanpa membuka GUI:
 
 ### 📥 Unduh Langsung Installer Aplikasi:
 
-Installer versi terbaru yang sudah siap pakai dapat langsung diunduh di:
-👉 **[Halaman Rilis Resmi GitHub (Releases)](https://github.com/rizkyghofur/flutter-auto-installer/releases)**
+Pilih installer sesuai sistem operasi Anda di bawah ini:
 
-| Sistem Operasi | File Installer Siap Pakai                | Tipe & Keterangan                                                |
-| :------------- | :--------------------------------------- | :--------------------------------------------------------------- |
-| 🪟 **Windows** | `Flutter-Auto-Installer-Setup-X.X.X.exe` | Setup Wizard (Otomatis buat shortcut Desktop & Start Menu)       |
-| 🪟 **Windows** | `Flutter-Auto-Installer-X.X.X.exe`       | Portable Executable (langsung klik buka tanpa instal)            |
-| 🍏 **macOS**   | `Flutter-Auto-Installer-X.X.X-arm64.dmg` | Apple Disk Image untuk **Mac Apple Silicon (M1 / M2 / M3 / M4)** |
-| 🍏 **macOS**   | `Flutter-Auto-Installer-X.X.X.dmg`       | Apple Disk Image untuk **Mac Intel**                             |
-| 🐧 **Linux**   | `Flutter-Auto-Installer-X.X.X.AppImage`  | Standalone Linux Executable (kompatibel semua distro Linux)      |
-| 🐧 **Linux**   | `flutter-auto-installer_X.X.X_amd64.deb` | Paket Instalasi resmi untuk Debian / Ubuntu                      |
+<p align="center">
+  <a href="https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-Setup-1.0.0.exe">
+    <img src="https://img.shields.io/badge/Download-Windows%20Installer%20(.exe)-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Download Windows Installer">
+  </a>
+  <a href="https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0.exe">
+    <img src="https://img.shields.io/badge/Download-Windows%20Portable%20(.exe)-23272A?style=for-the-badge&logo=windows&logoColor=white" alt="Download Windows Portable">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0-arm64.dmg">
+    <img src="https://img.shields.io/badge/Download-macOS%20Apple%20Silicon%20(.dmg)-000000?style=for-the-badge&logo=apple&logoColor=white" alt="Download macOS Apple Silicon">
+  </a>
+  <a href="https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0.dmg">
+    <img src="https://img.shields.io/badge/Download-macOS%20Intel%20(.dmg)-555555?style=for-the-badge&logo=apple&logoColor=white" alt="Download macOS Intel">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0.AppImage">
+    <img src="https://img.shields.io/badge/Download-Linux%20AppImage%20(.AppImage)-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Download Linux AppImage">
+  </a>
+  <a href="https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/flutter-auto-installer_1.0.0_amd64.deb">
+    <img src="https://img.shields.io/badge/Download-Debian%20%2F%20Ubuntu%20(.deb)-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Download Debian / Ubuntu Deb">
+  </a>
+</p>
+
+<br>
+
+| Sistem Operasi | File Installer & Tautan Langsung | Tipe & Keterangan |
+| :------------- | :------------------------------- | :---------------- |
+| 🪟 **Windows** | [⬇️ `Flutter-Auto-Installer-Setup-1.0.0.exe`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-Setup-1.0.0.exe) | **Setup Wizard** (Otomatis pasang shortcut Desktop & Start Menu) |
+| 🪟 **Windows** | [⬇️ `Flutter-Auto-Installer-1.0.0.exe`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0.exe) | **Portable Executable** (Langsung klik buka tanpa instalasi) |
+| 🍏 **macOS**   | [⬇️ `Flutter-Auto-Installer-1.0.0-arm64.dmg`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0-arm64.dmg) | Apple Disk Image untuk **Mac Apple Silicon (M1 / M2 / M3 / M4)** |
+| 🍏 **macOS**   | [⬇️ `Flutter-Auto-Installer-1.0.0.dmg`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0.dmg) | Apple Disk Image untuk **Mac Intel** |
+| 🐧 **Linux**   | [⬇️ `Flutter-Auto-Installer-1.0.0.AppImage`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0.AppImage) | Standalone Executable (Kompatibel semua distro Linux) |
+| 🐧 **Linux**   | [⬇️ `flutter-auto-installer_1.0.0_amd64.deb`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/flutter-auto-installer_1.0.0_amd64.deb) | Paket Instalasi resmi untuk Debian / Ubuntu |
+
+> 💡 *Semua rilis dan riwayat versi juga dapat dilihat di [Halaman Rilis Resmi GitHub (Releases)](https://github.com/rizkyghofur/flutter-auto-installer/releases).*
 
 ---
 
