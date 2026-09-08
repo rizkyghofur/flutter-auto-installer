@@ -77,14 +77,14 @@ Bagi pengguna yang ingin langsung menjalankan instalasi tanpa membuka GUI:
 Installer versi terbaru yang sudah siap pakai dapat langsung diunduh di:
 👉 **[Halaman Rilis Resmi GitHub (Releases)](https://github.com/rizkyghofur/flutter-auto-installer/releases)**
 
-| Sistem Operasi | File Installer Siap Pakai | Tipe & Keterangan |
-| :--- | :--- | :--- |
-| 🪟 **Windows** | `Flutter-Auto-Installer-Setup-X.X.X.exe` | Setup Wizard (Otomatis buat shortcut Desktop & Start Menu) |
-| 🪟 **Windows** | `Flutter-Auto-Installer-X.X.X.exe` | Portable Executable (langsung klik buka tanpa instal) |
-| 🍏 **macOS** | `Flutter-Auto-Installer-X.X.X-arm64.dmg` | Apple Disk Image untuk **Mac Apple Silicon (M1 / M2 / M3 / M4)** |
-| 🍏 **macOS** | `Flutter-Auto-Installer-X.X.X.dmg` | Apple Disk Image untuk **Mac Intel** |
-| 🐧 **Linux** | `Flutter-Auto-Installer-X.X.X.AppImage` | Standalone Linux Executable (kompatibel semua distro Linux) |
-| 🐧 **Linux** | `flutter-auto-installer_X.X.X_amd64.deb` | Paket Instalasi resmi untuk Debian / Ubuntu |
+| Sistem Operasi | File Installer Siap Pakai                | Tipe & Keterangan                                                |
+| :------------- | :--------------------------------------- | :--------------------------------------------------------------- |
+| 🪟 **Windows** | `Flutter-Auto-Installer-Setup-X.X.X.exe` | Setup Wizard (Otomatis buat shortcut Desktop & Start Menu)       |
+| 🪟 **Windows** | `Flutter-Auto-Installer-X.X.X.exe`       | Portable Executable (langsung klik buka tanpa instal)            |
+| 🍏 **macOS**   | `Flutter-Auto-Installer-X.X.X-arm64.dmg` | Apple Disk Image untuk **Mac Apple Silicon (M1 / M2 / M3 / M4)** |
+| 🍏 **macOS**   | `Flutter-Auto-Installer-X.X.X.dmg`       | Apple Disk Image untuk **Mac Intel**                             |
+| 🐧 **Linux**   | `Flutter-Auto-Installer-X.X.X.AppImage`  | Standalone Linux Executable (kompatibel semua distro Linux)      |
+| 🐧 **Linux**   | `flutter-auto-installer_X.X.X_amd64.deb` | Paket Instalasi resmi untuk Debian / Ubuntu                      |
 
 ---
 
@@ -118,4 +118,5 @@ npm run dist:win
 # Compile Installer Linux (.AppImage & .deb)
 npm run dist:linux
 ```
+
 Hasil file installer akan tersimpan di dalam folder `dist/`.
