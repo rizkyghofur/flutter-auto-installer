@@ -70,29 +70,46 @@ Bagi pengguna yang ingin langsung menjalankan instalasi tanpa membuka GUI:
 
 ---
 
-## 📦 Cara Compile Installer (Windows, macOS, Linux)
+## 📦 Unduhan Installer Resmi & Cara Rilis (Windows, macOS, Linux)
 
-### Cara 1: Otomatis via GitHub Actions CI/CD (Rekomendasi ⭐)
+### 📥 Unduh Langsung Installer Aplikasi:
 
-Anda tidak perlu memiliki 3 komputer fisik. GitHub akan meminjamkan 3 server asli (Windows, Mac, Linux) di cloud untuk meng-compile aplikasi:
+Installer versi terbaru yang sudah siap pakai dapat langsung diunduh di:
+👉 **[Halaman Rilis Resmi GitHub (Releases)](https://github.com/rizkyghofur/flutter-auto-installer/releases)**
 
-1. Buat tag versi baru di terminal dan push ke GitHub:
+| Sistem Operasi | File Installer Siap Pakai | Tipe & Keterangan |
+| :--- | :--- | :--- |
+| 🪟 **Windows** | `Flutter-Auto-Installer-Setup-X.X.X.exe` | Setup Wizard (Otomatis buat shortcut Desktop & Start Menu) |
+| 🪟 **Windows** | `Flutter-Auto-Installer-X.X.X.exe` | Portable Executable (langsung klik buka tanpa instal) |
+| 🍏 **macOS** | `Flutter-Auto-Installer-X.X.X-arm64.dmg` | Apple Disk Image untuk **Mac Apple Silicon (M1 / M2 / M3 / M4)** |
+| 🍏 **macOS** | `Flutter-Auto-Installer-X.X.X.dmg` | Apple Disk Image untuk **Mac Intel** |
+| 🐧 **Linux** | `Flutter-Auto-Installer-X.X.X.AppImage` | Standalone Linux Executable (kompatibel semua distro Linux) |
+| 🐧 **Linux** | `flutter-auto-installer_X.X.X_amd64.deb` | Paket Instalasi resmi untuk Debian / Ubuntu |
+
+---
+
+### 🚀 Cara Menerbitkan Versi Rilis Baru (Otomatis via GitHub CI/CD):
+
+Anda **tidak perlu meng-compile manual** di 3 komputer berbeda. GitHub Actions akan otomatis meng-compile dan menerbitkan semua file installer ke tab **Releases** setiap kali Anda push versi tag baru:
+
+1. **Update Versi di `package.json`** (misal dari `1.0.0` ke `1.0.1`).
+2. **Jalankan Perintah Git di Terminal**:
    ```bash
    git add .
-   git commit -m "release: siapkan versi v1.0.0"
-   git tag v1.0.0
+   git commit -m "feat: rilis pembaruan v1.0.1"
+   git tag v1.0.1
    git push origin main --tags
    ```
-2. Buka tab **Actions** di repositori GitHub Anda.
-3. Server GitHub akan meng-compile sekaligus:
-   - 🪟 **Windows**: `.exe` Installer (Setup Wizard) & Portable
-   - 🍏 **macOS**: `.dmg` Installer & `.zip` (Intel & Apple Silicon M1/M2/M3)
-   - 🐧 **Linux**: `.AppImage` & `.deb`
-4. Setelah selesai, seluruh installer siap diunduh di tab **Releases** GitHub Anda!
+3. **Selesai!** GitHub Actions akan otomatis:
+   - Menyalakan 3 mesin cloud virtual (Windows, macOS, Linux).
+   - Meng-compile file `.exe`, `.dmg`, `.AppImage`, dan `.deb`.
+   - Langsung mengunggah semua installer ke tab **Releases** repositori Anda.
 
-### Cara 2: Compile Langsung dari Laptop Windows
+---
 
-Untuk meng-compile paket Windows atau Linux dari komputer Anda saat ini:
+### 💻 Cara Compile Manual di Laptop Windows (Opsional)
+
+Jika ingin meng-compile file lokal tanpa push ke GitHub:
 
 ```bash
 # Compile Installer Windows (.exe)
@@ -101,4 +118,4 @@ npm run dist:win
 # Compile Installer Linux (.AppImage & .deb)
 npm run dist:linux
 ```
-Hasil file installer akan tersimpan di folder `dist/`.
+Hasil file installer akan tersimpan di dalam folder `dist/`.
