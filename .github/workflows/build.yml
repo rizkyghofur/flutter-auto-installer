@@ -1,0 +1,45 @@
+name: Build & Release Multi-Platform App
+
+on:
+  push:
+    tags:
+      - 'v*' # Memicu build otomatis saat tag versi dibuat (contoh: git tag v1.0.0 && git push origin v1.0.0)
+  workflow_dispatch: # Memungkinkan tombol "Run workflow" manual dari browser di tab Actions GitHub
+
+permissions:
+  contents: write # Diperlukan untuk membuat rilis dan mengunggah installer di tab Releases
+
+jobs:
+  release:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            platform: win
+          - os: macos-latest
+            platform: mac
+          - os: ubuntu-latest
+            platform: linux
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies
+        run: npm ci
+
+      - name: 🔨 Build / Package Application
+        uses: samuelmeuli/action-electron-builder@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          release: true
+          args: --${{ matrix.platform }}

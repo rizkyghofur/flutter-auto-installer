@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Install Flutter & Java SDK
+Comment=Instalasi Otomatis Flutter Stable & OpenJDK 17
+Exec=bash -c "SCRIPT='%k/install_linux.sh'; [ ! -f \"$SCRIPT\" ] && SCRIPT='%k/scripts/install_linux.sh'; chmod +x \"$SCRIPT\" && \"$SCRIPT\"; exec bash"
+Terminal=true
+Icon=utilities-terminal
+Categories=Development;

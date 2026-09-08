@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flutter & Android Dev Suite One-Click Installer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-layout">
+      <!-- SIDEBAR KIRI -->
+      <aside class="app-sidebar">
+        <div class="sidebar-brand">
+          <div class="brand-badge">
+            <img
+              src="../assets/flutter-logo.png"
+              alt="Flutter Logo"
+              class="brand-logo-img"
+            />
+          </div>
+          <div class="brand-text">
+            <h2>Flutter Suite</h2>
+            <span>Dev Environment</span>
+          </div>
+        </div>
+
+        <!-- Vertical Navigation Tabs -->
+        <nav class="sidebar-nav">
+          <button class="nav-tab active" data-tab="tab-install">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"
+              />
+            </svg>
+            <span>Auto Installer</span>
+          </button>
+          <button class="nav-tab" data-tab="tab-ides">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+            <span>IDE & Tools</span>
+          </button>
+          <button class="nav-tab" data-tab="tab-doctor">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+            <span>Visual Doctor</span>
+          </button>
+        </nav>
+
+        <!-- Sidebar Version Widget -->
+        <div class="sidebar-version-card">
+          <div class="sidebar-version-header">
+            <span class="sv-title">Pembaruan Flutter</span>
+            <button
+              id="btnCheckUpdate"
+              class="btn-icon-tiny"
+              title="Periksa Rilis Terbaru"
+            >
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M23 4v6h-6M1 20v-6h6" />
+                <path
+                  d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="sv-info">
+            <div class="sv-row">
+              <span>Versi:</span>
+              <strong id="lblCurrentFlutterVer">Memeriksa...</strong>
+            </div>
+            <div class="sv-row" id="rowLatestVer">
+              <span>Terbaru:</span>
+              <strong id="lblLatestFlutterVer" class="sv-latest-ver"
+                >Memeriksa...</strong
+              >
+            </div>
+            <div class="sv-row">
+              <span>Status:</span>
+              <span id="lblUpdateStatus" class="sv-status">Memeriksa...</span>
+            </div>
+          </div>
+          <button
+            id="btnUpgradeFlutter"
+            class="btn-upgrade-mini"
+            style="display: none"
+          >
+            🚀 Update Sekarang
+          </button>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+          <div class="os-badge-wrapper">
+            <span id="osBadge" class="os-badge">
+              <span id="osIcon" class="os-icon">💻</span>
+              <span id="osName">Mendeteksi OS...</span>
+            </span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT AREA -->
+      <div class="main-wrapper">
+        <!-- Top Header Bar -->
+        <header class="app-header">
+          <div>
+            <h1 id="topHeaderTitle">Auto Installer</h1>
+            <p class="subtitle" id="topHeaderSubtitle">
+              Instalasi Flutter SDK & Java JDK otomatis
+            </p>
+          </div>
+        </header>
+
+        <main class="app-content">
+          <!-- ================================================================= -->
+          <!-- TAB 1: AUTO INSTALLER (Smart Installer) -->
+          <!-- ================================================================= -->
+          <div class="tab-pane active" id="tab-install">
+            <div class="split-view">
+              <!-- Left Column: Status List & Steps -->
+              <section class="pane-column left-pane">
+                <div class="card status-card">
+                  <div class="card-header">
+                    <h3>Ringkasan Komponen Sistem</h3>
+                    <button
+                      id="btnRefreshStatus"
+                      class="btn-icon"
+                      title="Periksa Ulang"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M23 4v6h-6M1 20v-6h6" />
+                        <path
+                          d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="status-grid">
+                    <div class="status-item" id="statusGit">
+                      <div class="indicator"></div>
+                      <div class="status-info">
+                        <span class="label">Git Version Control</span>
+                        <span class="value">Memeriksa...</span>
+                      </div>
+                    </div>
+                    <div class="status-item" id="statusJava">
+                      <div class="indicator"></div>
+                      <div class="status-info">
+                        <span class="label">Java OpenJDK 17 (Gradle)</span>
+                        <span class="value">Memeriksa...</span>
+                      </div>
+                    </div>
+                    <div class="status-item" id="statusFlutter">
+                      <div class="indicator"></div>
+                      <div class="status-info">
+                        <span class="label">Flutter SDK (Stable Branch)</span>
+                        <span class="value">Memeriksa...</span>
+                      </div>
+                    </div>
+                    <div class="status-item" id="statusAndroid">
+                      <div class="indicator"></div>
+                      <div class="status-info">
+                        <span class="label">Android SDK Tools</span>
+                        <span class="value">Memeriksa...</span>
+                      </div>
+                    </div>
+                    <div class="status-item" id="statusLicenses">
+                      <div class="indicator"></div>
+                      <div class="status-info">
+                        <span class="label">Lisensi Android SDK</span>
+                        <span class="value">Memeriksa...</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step Tracker -->
+                <div class="card steps-card">
+                  <h3>Tahapan Otomatisasi (1-Klik)</h3>
+                  <div class="step-tracker">
+                    <div class="step-node" id="stepNode1">
+                      <div class="node-circle">1</div>
+                      <div class="node-text">
+                        <span class="node-title">Dependensi & Git</span>
+                        <span class="node-desc">Memastikan Git siap</span>
+                      </div>
+                    </div>
+                    <div class="step-node" id="stepNode2">
+                      <div class="node-circle">2</div>
+                      <div class="node-text">
+                        <span class="node-title">Unduh Java 17 LTS</span>
+                        <span class="node-desc">Adoptium Temurin OpenJDK</span>
+                      </div>
+                    </div>
+                    <div class="step-node" id="stepNode3">
+                      <div class="node-circle">3</div>
+                      <div class="node-text">
+                        <span class="node-title">Clone Flutter SDK</span>
+                        <span class="node-desc"
+                          >Branch official 'stable' terbaru</span
+                        >
+                      </div>
+                    </div>
+                    <div class="step-node" id="stepNode4">
+                      <div class="node-circle">4</div>
+                      <div class="node-text">
+                        <span class="node-title">Setup Environment</span>
+                        <span class="node-desc">PATH & JAVA_HOME permanen</span>
+                      </div>
+                    </div>
+                    <div class="step-node" id="stepNode5">
+                      <div class="node-circle">5</div>
+                      <div class="node-text">
+                        <span class="node-title">Flutter Doctor</span>
+                        <span class="node-desc"
+                          >Pre-download Dart & verifikasi</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Right Column: Action Card & Terminal -->
+              <section class="pane-column right-pane">
+                <!-- Smart Contextual Installer Card -->
+                <div class="card action-card" id="actionCard">
+                  <div class="action-top">
+                    <div>
+                      <span class="badge-tag" id="badgeActionTag"
+                        >Status Analisis</span
+                      >
+                      <h2 id="lblActionTitle">Pemeriksaan Komponen</h2>
+                      <p class="install-dir-note" id="lblActionSubnote">
+                        Direktori Target Flutter:
+                        <code id="lblTargetDir">C:\src\flutter</code>
+                      </p>
+                    </div>
+                    <div class="action-buttons">
+                      <button
+                        id="btnActionCreateProject"
+                        class="btn-primary btn-action-create"
+                        style="display: none"
+                        title="Buat template proyek Flutter baru"
+                      >
+                        <span>⚡ Buat Proyek</span>
+                      </button>
+                      <button id="btnStartInstall" class="btn-primary">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                        <span id="lblBtnInstallText">Mulai Instalasi</span>
+                      </button>
+                      <button
+                        id="btnCancelInstall"
+                        class="btn-secondary"
+                        style="display: none"
+                      >
+                        Batal
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Notice Alert Banner -->
+                  <div id="installerNoticeBanner" class="notice-banner">
+                    <span id="noticeBannerIcon">ℹ️</span>
+                    <span id="noticeBannerText"
+                      >Menganalisis komponen sistem Anda...</span
+                    >
+                  </div>
+
+                  <div class="progress-bar-container">
+                    <div class="progress-bar-header">
+                      <span id="lblProgressStatus">Menunggu perintah...</span>
+                      <span id="lblProgressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar-track">
+                      <div
+                        id="progressBarFill"
+                        class="progress-bar-fill"
+                        style="width: 0%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="terminal-card">
+                  <div class="terminal-header">
+                    <div class="window-controls">
+                      <span class="ctrl red"></span>
+                      <span class="ctrl yellow"></span>
+                      <span class="ctrl green"></span>
+                    </div>
+                    <span class="terminal-title"
+                      >Live Installation Terminal</span
+                    >
+                    <button id="btnClearLog" class="btn-text">Bersihkan</button>
+                  </div>
+                  <pre id="terminalLog" class="terminal-body">
+// Terminal siap.</pre
+                  >
+                </div>
+
+                <div
+                  class="quick-actions"
+                  id="quickActions"
+                  style="display: none"
+                >
+                  <button
+                    id="btnQuickCreateProject"
+                    class="btn-outline btn-outline-highlight"
+                  >
+                    ⚡ Buat Proyek Flutter
+                  </button>
+                  <button id="btnOpenFlutterFolder" class="btn-outline">
+                    📁 Buka Folder Flutter
+                  </button>
+                  <button id="btnGoToDoctor" class="btn-outline">
+                    🩺 Lihat Visual Doctor
+                  </button>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <!-- ================================================================= -->
+          <!-- TAB 2: IDE & TOOLS (Android Studio, VS Code, Xcode) -->
+          <!-- ================================================================= -->
+          <div class="tab-pane" id="tab-ides">
+            <div class="ides-container">
+              <div class="ides-intro">
+                <h2>Editor & Peralatan Pendukung</h2>
+                <p>
+                  Pilih editor kode dan tools pendukung untuk mulai membuat
+                  aplikasi Flutter.
+                </p>
+              </div>
+
+              <div class="ides-grid">
+                <!-- Card 1: Android Studio -->
+                <div class="card ide-card" id="cardAndroidStudio">
+                  <div class="ide-card-header">
+                    <div class="ide-icon android-studio-icon">
+                      <img
+                        src="../assets/icons/androidstudio.svg"
+                        alt="Android Studio"
+                        class="ide-brand-img"
+                      />
+                    </div>
+                    <div class="ide-header-info">
+                      <h3>Android Studio</h3>
+                      <span class="ide-badge" id="badgeAndroidStudio"
+                        >Memeriksa...</span
+                      >
+                    </div>
+                  </div>
+                  <p class="ide-desc">
+                    Wajib untuk pengembangan Android. Menyediakan
+                    <strong>Android SDK</strong>, Emulator perangkat (AVD), dan
+                    Build Tools untuk kompilasi APK/AAB.
+                  </p>
+                  <div class="ide-features">
+                    <span>✓ Android Emulator</span>
+                    <span>✓ SDK Manager</span>
+                    <span>✓ Device File Explorer</span>
+                  </div>
+                  <div class="ide-card-footer">
+                    <button id="btnInstallAndroidStudio" class="btn-ide">
+                      Instal Android Studio
+                    </button>
+                    <div class="license-status-wrapper">
+                      <span id="badgeLicenses" class="license-pill"
+                        >Lisensi: Memeriksa...</span
+                      >
+                      <div class="license-actions">
+                        <button
+                          id="btnAutoAcceptLicenses"
+                          class="btn-license-auto"
+                          title="Setujui otomatis semua lisensi tanpa buka terminal"
+                        >
+                          ⚡ Auto Setujui
+                        </button>
+                        <button
+                          id="btnAndroidLicenses"
+                          class="btn-text-action"
+                          title="Buka terminal manual jika ingin membaca tiap lisensi"
+                        >
+                          CLI
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2: Visual Studio Code -->
+                <div class="card ide-card" id="cardVSCode">
+                  <div class="ide-card-header">
+                    <div class="ide-icon vscode-icon">
+                      <img
+                        src="../assets/icons/vscode.svg"
+                        alt="VS Code"
+                        class="ide-brand-img"
+                      />
+                    </div>
+                    <div class="ide-header-info">
+                      <h3>Visual Studio Code</h3>
+                      <span class="ide-badge" id="badgeVSCode"
+                        >Memeriksa...</span
+                      >
+                    </div>
+                  </div>
+                  <p class="ide-desc">
+                    Editor kode paling populer, ringan, dan cepat untuk coding
+                    Flutter sehari-hari dengan integrasi Hot Reload instan.
+                  </p>
+                  <div class="ide-features">
+                    <span>✓ Ekstensi Flutter & Dart</span>
+                    <span>✓ Hot Reload Super Cepat</span>
+                    <span>✓ Debugger Lengkap</span>
+                  </div>
+                  <div class="ide-card-footer">
+                    <button id="btnInstallVSCode" class="btn-ide">
+                      Instal Visual Studio Code
+                    </button>
+                    <button id="btnInstallExtensions" class="btn-text-action">
+                      Buka Ekstensi Flutter
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Card 3: Xcode (Khusus macOS) -->
+                <div class="card ide-card" id="cardXcode">
+                  <div class="ide-card-header">
+                    <div class="ide-icon xcode-icon">
+                      <img
+                        src="../assets/icons/xcode.svg"
+                        alt="Xcode"
+                        class="ide-brand-img"
+                      />
+                    </div>
+                    <div class="ide-header-info">
+                      <h3>Xcode (Apple macOS)</h3>
+                      <span class="ide-badge" id="badgeXcode"
+                        >Memeriksa...</span
+                      >
+                    </div>
+                  </div>
+                  <p class="ide-desc">
+                    Diperlukan jika Anda ingin menguji aplikasi di
+                    <strong>iOS Simulator</strong> atau mem-build aplikasi
+                    Flutter untuk iPhone & iPad.
+                  </p>
+                  <div class="ide-features">
+                    <span>✓ Simulator iPhone & iPad</span>
+                    <span>✓ CocoaPods Integration</span>
+                    <span>✓ Khusus OS macOS</span>
+                  </div>
+                  <div class="ide-card-footer">
+                    <button id="btnInstallXcode" class="btn-ide">
+                      Buka Mac App Store
+                    </button>
+                    <span class="mac-only-note" id="lblXcodeNote"
+                      >Tersedia di macOS</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Extra Advice Box -->
+              <div class="card post-install-guide">
+                <h3>📌 Panduan Ringkas Pemula:</h3>
+                <ol>
+                  <li>
+                    Jalankan <strong>Auto Installer</strong> untuk memasang
+                    Flutter SDK & Java.
+                  </li>
+                  <li>
+                    Pasang <strong>Visual Studio Code</strong> untuk editor kode
+                    harian.
+                  </li>
+                  <li>
+                    Pasang <strong>Android Studio</strong> untuk Android SDK &
+                    Emulator.
+                  </li>
+                  <li>
+                    Cek <strong>Visual Doctor</strong> untuk memastikan semua
+                    siap digunakan.
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================= -->
+          <!-- TAB 3: VISUAL FLUTTER DOCTOR -->
+          <!-- ================================================================= -->
+          <div class="tab-pane" id="tab-doctor">
+            <div class="doctor-container">
+              <div class="doctor-header-card card">
+                <div class="doctor-title-block">
+                  <h2>Status Flutter Doctor</h2>
+                  <p>Diagnosa kesiapan sistem Flutter dan panduan solusinya.</p>
+                </div>
+                <button id="btnRunDoctor" class="btn-primary">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M23 4v6h-6M1 20v-6h6" />
+                    <path
+                      d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"
+                    />
+                  </svg>
+                  <span>Jalankan Analisis Sekarang</span>
+                </button>
+              </div>
+
+              <!-- Doctor Status Results -->
+              <div id="doctorResults" class="doctor-results">
+                <div class="card empty-doctor">
+                  <p>
+                    Tekan tombol
+                    <strong>"Jalankan Analisis Sekarang"</strong> untuk memindai
+                    kesehatan sistem Flutter Anda.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Modal: Quick Create Flutter Project -->
+    <div id="modalCreateProject" class="modal-overlay" style="display: none">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>⚡ Buat Proyek Flutter Baru</h3>
+          <button id="btnCloseModal" class="btn-icon" title="Tutup">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="inputProjectName">Nama Proyek Flutter:</label>
+            <input
+              type="text"
+              id="inputProjectName"
+              placeholder="contoh: aplikasi_pertamaku"
+              value="aplikasi_pertamaku"
+            />
+            <small class="form-hint"
+              >Hanya huruf kecil, angka, dan underscore (_).</small
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Lokasi Folder Penyimpanan:</label>
+            <div class="input-with-action">
+              <input
+                type="text"
+                id="inputProjectDir"
+                readonly
+                placeholder="Pilih folder..."
+              />
+              <button id="btnBrowseProjectDir" class="btn-browse">
+                Pilih Folder
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Target Platform Proyek:</label>
+            <div class="platforms-selector">
+              <label class="platform-checkbox">
+                <input
+                  type="checkbox"
+                  name="projPlatform"
+                  value="android"
+                  checked
+                />
+                <span>🤖 Android</span>
+              </label>
+              <label class="platform-checkbox">
+                <input
+                  type="checkbox"
+                  name="projPlatform"
+                  value="ios"
+                  checked
+                />
+                <span>🍎 iOS</span>
+              </label>
+              <label class="platform-checkbox">
+                <input
+                  type="checkbox"
+                  name="projPlatform"
+                  value="web"
+                  checked
+                />
+                <span>🌐 Web</span>
+              </label>
+              <label class="platform-checkbox">
+                <input
+                  type="checkbox"
+                  name="projPlatform"
+                  value="windows"
+                  checked
+                />
+                <span>🪟 Windows</span>
+              </label>
+              <label class="platform-checkbox">
+                <input
+                  type="checkbox"
+                  name="projPlatform"
+                  value="macos"
+                  checked
+                />
+                <span>💻 macOS</span>
+              </label>
+              <label class="platform-checkbox">
+                <input
+                  type="checkbox"
+                  name="projPlatform"
+                  value="linux"
+                  checked
+                />
+                <span>🐧 Linux</span>
+              </label>
+            </div>
+            <small class="form-hint"
+              >Pilih platform yang ingin di-generate oleh template
+              Flutter.</small
+            >
+          </div>
+
+          <div
+            id="createProjectStatus"
+            class="create-project-status"
+            style="display: none"
+          >
+            <div class="status-spinner"></div>
+            <span id="createProjectStatusText"
+              >Sedang membuat template proyek Flutter...</span
+            >
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="btnCancelCreateProject" class="btn-modal-cancel">
+            Batal
+          </button>
+          <button id="btnSubmitCreateProject" class="btn-primary">
+            🚀 Buat & Buka di VS Code
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
