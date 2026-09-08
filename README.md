@@ -105,16 +105,16 @@ Pilih installer sesuai sistem operasi Anda di bawah ini:
 
 <br>
 
-| Sistem Operasi | File Installer & Tautan Langsung | Tipe & Keterangan |
-| :------------- | :------------------------------- | :---------------- |
+| Sistem Operasi | File Installer & Tautan Langsung                                                                                                                                     | Tipe & Keterangan                                                |
+| :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------- |
 | 🪟 **Windows** | [⬇️ `Flutter-Auto-Installer-Setup-1.0.0.exe`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-Setup-1.0.0.exe) | **Setup Wizard** (Otomatis pasang shortcut Desktop & Start Menu) |
-| 🪟 **Windows** | [⬇️ `Flutter-Auto-Installer-1.0.0.exe`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0.exe) | **Portable Executable** (Langsung klik buka tanpa instalasi) |
+| 🪟 **Windows** | [⬇️ `Flutter-Auto-Installer-1.0.0.exe`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0.exe)             | **Portable Executable** (Langsung klik buka tanpa instalasi)     |
 | 🍏 **macOS**   | [⬇️ `Flutter-Auto-Installer-1.0.0-arm64.dmg`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0-arm64.dmg) | Apple Disk Image untuk **Mac Apple Silicon (M1 / M2 / M3 / M4)** |
-| 🍏 **macOS**   | [⬇️ `Flutter-Auto-Installer-1.0.0.dmg`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0.dmg) | Apple Disk Image untuk **Mac Intel** |
-| 🐧 **Linux**   | [⬇️ `Flutter-Auto-Installer-1.0.0.AppImage`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0.AppImage) | Standalone Executable (Kompatibel semua distro Linux) |
-| 🐧 **Linux**   | [⬇️ `flutter-auto-installer_1.0.0_amd64.deb`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/flutter-auto-installer_1.0.0_amd64.deb) | Paket Instalasi resmi untuk Debian / Ubuntu |
+| 🍏 **macOS**   | [⬇️ `Flutter-Auto-Installer-1.0.0.dmg`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0.dmg)             | Apple Disk Image untuk **Mac Intel**                             |
+| 🐧 **Linux**   | [⬇️ `Flutter-Auto-Installer-1.0.0.AppImage`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/Flutter-Auto-Installer-1.0.0.AppImage)   | Standalone Executable (Kompatibel semua distro Linux)            |
+| 🐧 **Linux**   | [⬇️ `flutter-auto-installer_1.0.0_amd64.deb`](https://github.com/rizkyghofur/flutter-auto-installer/releases/download/v1.0.0/flutter-auto-installer_1.0.0_amd64.deb) | Paket Instalasi resmi untuk Debian / Ubuntu                      |
 
-> 💡 *Semua rilis dan riwayat versi juga dapat dilihat di [Halaman Rilis Resmi GitHub (Releases)](https://github.com/rizkyghofur/flutter-auto-installer/releases).*
+> 💡 _Semua rilis dan riwayat versi juga dapat dilihat di [Halaman Rilis Resmi GitHub (Releases)](https://github.com/rizkyghofur/flutter-auto-installer/releases)._
 
 ---
 
