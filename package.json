@@ -19,7 +19,10 @@
     "android-sdk",
     "electron"
   ],
-  "author": "Rizki Abdul Gofur",
+  "author": {
+    "name": "Rizki Abdul Gofur",
+    "email": "rizkyghofur@gmail.com"
+  },
   "license": "MIT",
   "build": {
     "appId": "com.rizki.flutterinstaller",
