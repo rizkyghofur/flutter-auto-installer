@@ -72,7 +72,7 @@ Bagi pengguna yang ingin langsung menjalankan instalasi tanpa membuka GUI:
 
 ## 📦 Unduhan Installer Resmi & Cara Rilis (Windows, macOS, Linux)
 
-### 📥 Unduh Langsung Installer Aplikasi:
+Unduh Langsung Installer Aplikasi:
 
 | Sistem Operasi | File Installer & Tautan Langsung                                                                                                                                     | Tipe & Keterangan                                                |
 | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------- |
